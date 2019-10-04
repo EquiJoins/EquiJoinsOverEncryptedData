@@ -1,0 +1,13 @@
+Test correctness of inner product function (TODO)
+    Modify external python code to use the c++ implementation of the IPF
+        Write parser to process results from c++ implementation
+        Write code to compare the results or assert that the implementation works with the c++ code
+        Note that given the potential overhead of the parser this test will only test the correctness of the implementation
+    Write python code to just test the speed of the IPF
+        Each ipf carries out N inner product calls
+        Note that the python native code will have an inherent advantage 
+        
+    TEST INPUT
+    
+    
+    RESULTS
