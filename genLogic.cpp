@@ -15,3 +15,11 @@ long innerProduct(vector<int> x , vector<int> y){
 	}
 	return sum;
 }
+
+char * vecToBitStr(vector<int> * vec){
+	int bitCount = 0;
+	char* out = malloc(size(vec));
+	while(bitCOunt < size(vec)){
+
+	}
+}
