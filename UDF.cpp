@@ -36,6 +36,9 @@ typedef long long longlong;
 #if !defined(HAVE_GETHOSTBYADDR_R) || !defined(HAVE_SOLARIS_STYLE_GETHOST)
 static pthread_mutex_t LOCK_hostname;
 #endif
+extern "C"{
+#include <pbc.h>
+#include <functional>
 my_bool hello_world_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 char* hello_world(UDF_INIT *initid, UDF_ARGS *args,
           char *result, unsigned long *length,
