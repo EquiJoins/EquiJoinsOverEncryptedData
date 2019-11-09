@@ -19,7 +19,7 @@ long innerProduct(vector<int> x , vector<int> y){
 char * vecToBitStr(vector<int> * vec){
 	int bitCount = 0;
 	char* out = malloc(size(vec));
-	while(bitCOunt < size(vec)){
+	while(bitCount < size(vec)){
 
 	}
 }
