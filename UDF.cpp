@@ -1,4 +1,4 @@
-#include <pbc.h>
+#include "pbc.h"
 #include <functional>
 #ifdef STANDARD
 /* STANDARD is defined, don't use any mysql functions */
