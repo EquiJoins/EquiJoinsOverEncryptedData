@@ -56,21 +56,47 @@ char* hello_world(UDF_INIT *initid, UDF_ARGS *args,
 		*length = 13;
 		return result;
 }
-int* gen_polynomial(int hash){
+void gen_polynomial(int size,int* roots){
+	
+}
+void recursive_generation(int* roots, int* results, int count){
+	if(count == size(roots)/sizeof(int)) return results;
+	if(count > 0){
+		for(int i = 0; i< count+1; i++){
+			results[count+i]+=results[i]*roots[count];
+		}
+	}
+	else{
+		results[0] = 1;
+		results[1] = roots[0];
+	}
+	return recursive_generation(roots,results,count+1);
+}
+unsigned long hash(unsigned char *str)
+{
+    unsigned long hash = 5381;
+    int c;
 
+    while (c = *str++)
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+    return hash;
 }
 bool check_init(UDF_INIT *initid, UDF_ARGS *args, char *message){
 	//assume args[0] is table name. args[1] is search value, args[2] is search row
 	pairing_t pairing;
 	char init[]="type d\nq 625852803282871856053922297323874661378036491717\nn 625852803282871856053923088432465995634661283063\nh 3\nr 208617601094290618684641029477488665211553761021\na 581595782028432961150765424293919699975513269268\nb 517921465817243828776542439081147840953753552322\nk 6\nnk 60094290356408407130984161127310078516360031868417968262992864809623507269833854678414046779817844853757026858774966331434198257512457993293271849043664655146443229029069463392046837830267994222789160047337432075266619082657640364986415435746294498140589844832666082434658532589211525696\nhk 1380801711862212484403205699005242141541629761433899149236405232528956996854655261075303661691995273080620762287276051361446528504633283152278831183711301329765591450680250000592437612973269056\ncoeff0 472731500571015189154958232321864199355792223347\ncoeff1 352243926696145937581894994871017455453604730246\ncoeff2 289113341693870057212775990719504267185772707305\nnqr 431211441436589568382088865288592347194866189652";
+	element_t h;
 	pairing_init_set_str(pairing, init);
-	std::hash<std::string> str_hash;
+	element_from_hash(h,args[1],size(args[1])/sizeof(char));
+
 
 }
 void check_deinit(UDF_INIT *initid){
 
 }
 long long check(UDF_INIT *initid, UDF_ARGS *args,char *is_null, char *error){
+	void* internal_args = initid -> ptr; //format of internal args is internal_args[0] = target_inner_prod, internal_args[1] = beta vector
 
 }
 
