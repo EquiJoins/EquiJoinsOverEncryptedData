@@ -9,4 +9,7 @@ Ext_Files - contains the compiled c libraries from Kevin Lewi's code
 
 External_Files - contains the libraries charm and flint - currently bein gused by Kevin Lewi's implementation. Given that there is no c api, there is no current use for them in the UDFs
 
-CPP.cpp        - cpp file containing code for the UDF
+UDF.cpp        - cpp file containing code for the UDF
+
+# Testing Guidelines
+**Proposed approach**: Modify UDF.cpp to contain an encrypt function which modifies the values in the row to the ciphertext, then run the scan UDF to verify if the scan function is working
