@@ -6,5 +6,7 @@ The Kevin Lewi FHIPE implementation is not compatible with systems running open 
 
 # Summary of files
 Ext_Files - contains the compiled c libraries from Kevin Lewi's code
+
 External_Files - contains the libraries charm and flint - currently bein gused by Kevin Lewi's implementation. Given that there is no c api, there is no current use for them in the UDFs
+
 CPP.cpp        - cpp file containing code for the UDF
