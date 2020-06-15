@@ -18,7 +18,7 @@ PERFORMANCE OF THIS SOFTWARE.
 Implementation of function-hiding inner product encryption (FHIPE).
 """
 
-import sys, os, math
+import sys, os, math, random
 
 # Path hack
 sys.path.insert(0, os.path.abspath('charm'))
@@ -47,6 +47,9 @@ def setup(n, group_name = 'MNT159', simulated = False):
   group = PairingGroup(group_name)
   g1 = group.random(G1)
   g2 = group.random(G2)
+  k = group.random(ZR)
+
+  print(k)
   assert g1.initPP(), "ERROR: Failed to init pre-computation table for g1."
   assert g2.initPP(), "ERROR: Failed to init pre-computation table for g2."
   
@@ -70,16 +73,16 @@ def setup(n, group_name = 'MNT159', simulated = False):
 
   pp = ()
   sk = (detB, B, Bstar, group, g1, g2)
-  return (pp, sk)
+  return (pp, sk, k)
 
-def keygen(sk, x):
+def keygen(sk, x): #outputs the token
   """
-  Performs the keygen algorithm for IPE.
+  Performs the keygen algorithm for IPE. note that k1 is a vector
   """
 
   (detB, B, Bstar, group, g1, g2) = sk
   n = len(x)
-  alpha = group.random(ZR)
+  alpha = 1
 
   k1 = [0] * n
   for j in range(n):
@@ -95,14 +98,14 @@ def keygen(sk, x):
   
   return (k1, k2)
   
-def encrypt(sk, x):
+def encrypt(sk, x): #outputs cipher
   """
   Performs the encrypt algorithm for IPE.
   """
 
   (detB, B, Bstar, group, g1, g2) = sk
   n = len(x)
-  beta = group.random(ZR)
+  beta = 1
 
   c1 = [0] * n
   for j in range(n):
@@ -127,11 +130,9 @@ def decrypt(pp, skx, cty, max_innerprod = 100):
 
   (k1, k2) = skx
   (c1, c2) = cty
-
-  t1 = innerprod_pair(c1, k1)
-  t2 = pair(c2, k2)
   
-  return solve_dlog_bsgs(t2, t1, max_innerprod+1)
+  t1 = innerprod_pair(c1, k1)
+  return t1
 
 def parse_matrix(matrix_str, group):
   """
@@ -195,4 +196,47 @@ def solve_dlog_bsgs(g, h, dlog_max):
         i = tb[s]
         return i * alpha + j
   return -1
+(pp,sk, k) = setup(10)
+def generateVectorX(a,x):
+  (detB, B, Bstar, group, g1, g2) = sk
 
+  hash_a = group.hash(a)
+  enc_input = [hash_a, 1,0] #seems to be an issue with the group.Random element
+  key_gen_input = [k, 0, 3] #If I set it to a constant value then it is fine otherwise it will not be fine
+  encr_results = encrypt(sk,enc_input)
+  return (encr_results, keygen(sk,key_gen_input))
+
+def generateVectorY(b,x,x_q):
+  (detB, B, Bstar, group, g1, g2) = sk
+
+  hash_b = group.hash(b)
+  hash_x = group.hash(x)
+  hash_xq = group.hash(x_q)
+  enc_input = [hash_b, hash_x**3, hash_x**2,hash_x,1,random.randint(1,99),0]
+  key_gen_input = [k, 0,0,-1, hash_xq, 0, random.randint(1,99)]
+  return (encrypt(sk,enc_input), keygen(sk,key_gen_input))
+
+def generatePolynomial(x):
+  group = PairingGroup("MNT159")
+  poly = [1,-x]
+  unsolvable = [1,0,group.random(G1)]
+  new_poly = [unsolvable[0]*i for i in poly]
+  
+  new_poly[len(new_poly)] = 0
+  new_poly[len(new_poly)] = 0
+    
+  for i in range(0,len(poly)):
+    new_poly[2+i] += unsolvable[2]*poly[i];
+
+  return new_poly;
+
+(detB, B, Bstar, group, g1, g2) = sk
+(ct1,tag1) = generateVectorX("a".encode(), 3)
+res = decrypt(pp,tag1,ct1)
+print(res)
+
+(ct2,tag2) = generateVectorX("a".encode(), 3)
+res2 = decrypt(pp, tag2, ct2)
+
+print(res2)
+print(res2 == res)
