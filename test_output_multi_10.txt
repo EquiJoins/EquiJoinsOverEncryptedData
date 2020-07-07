@@ -1,0 +1,31 @@
+
+a length: 40, b_length 40
+Total memory used 1728bytes
+10.202204364999488
+
+Total memory used 1728bytes
+10.34731463099888
+
+Total memory used 1728bytes
+10.191027090999341
+
+a length: 80, b_length 40
+Total memory used 2400bytes
+22.108840730999873
+
+Total memory used 2400bytes
+22.34256901400113
+
+Total memory used 2400bytes
+22.82739786499951
+
+a length: 120, b_length 40
+Total memory used 3008bytes
+34.06018539999968
+
+Total memory used 3008bytes
+34.553256767001585
+
+Total memory used 3008bytes
+34.75742282600004
+

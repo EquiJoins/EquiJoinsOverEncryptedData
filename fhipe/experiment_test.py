@@ -10,10 +10,8 @@ from fhipe import ipe
 (detB, B, Bstar, group, g1, g2) = sk
 (ct1,tag1) = ipe.generateVectorX("a".encode(), 3, k, sk)
 res = ipe.decrypt(pp,tag1,ct1)
-print(res)
 
-(ct2,tag2) = ipe.generateVectorY("a".encode(), bytes(3), bytes(5), k, sk)
+(ct2,tag2) = ipe.generateVectorY("a".encode(), str(3), str(3), k, sk)
 res2 = ipe.decrypt(pp, tag2, ct2)
 
-print(res2)
 print(res2 == res)

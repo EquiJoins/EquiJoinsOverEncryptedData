@@ -1,0 +1,40 @@
+
+a length: 40, b_length 40
+Total memory used 1728bytes
+Peak memory usage 4.3056640625
+5.646867362000194
+
+Total memory used 1728bytes
+Peak memory usage 4.2783203125
+4.577233966998392
+
+Total memory used 1728bytes
+Peak memory usage 4.2724609375
+6.1492919030006306
+
+a length: 80, b_length 40
+Total memory used 2400bytes
+Peak memory usage 4.5166015625
+12.181874431000324
+
+Total memory used 2400bytes
+Peak memory usage 4.48828125
+10.25853099699998
+
+Total memory used 2400bytes
+Peak memory usage 4.525390625
+9.963228710999829
+
+a length: 120, b_length 40
+Total memory used 3008bytes
+Peak memory usage 4.75390625
+23.624979231999532
+
+Total memory used 3008bytes
+Peak memory usage 4.78125
+16.717390331999923
+
+Total memory used 3008bytes
+Peak memory usage 4.7724609375
+16.58034378800039
+

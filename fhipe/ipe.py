@@ -165,7 +165,6 @@ def innerprod_pair(x, y):
   L = map(lambda i: pair(x[i], y[i]), range(len(x)))
   ret = 1
   for i in L:
-    print(str(i))
     ret *= i
   return ret
 
@@ -202,8 +201,8 @@ def generateVectorX(a, x, k, sk):
   (detB, B, Bstar, group, g1, g2) = sk
 
   hash_a = group.hash(a)
-  enc_input = [hash_a, 0, 0, 0, 0, group.random(ZR), 0] #seems to be an issue with the random element
-  key_gen_input = [k, 0, 0, 0, 0, 0, group.random(ZR)] #If I set it to a constant value then it is fine otherwise it will not be fine
+  enc_input = [hash_a, group.random(ZR), 0, 0, 0, 0, 0] #seems to be an issue with the random element
+  key_gen_input = [k, 0, group.random(ZR), 0, 0, 0, 0] #If I set it to a constant value then it is fine otherwise it will not be fine
   encr_results = encrypt(sk,enc_input)
   return (encr_results, keygen(sk,key_gen_input))
 
@@ -214,8 +213,6 @@ def generateVectorY(b,x, x_q, k, sk):
   hash_x = group.hash(x)
   hash_xq = group.hash(x_q)
 
-  print(hash_x)
-  print(hash_xq)
   enc_input =     [hash_b, hash_x**3, hash_x**2, hash_x, 1        , group.random(ZR),0]
   key_gen_input = [k     ,         0,         0,     -1, hash_xq  , 0               , group.random(ZR)]
   return (encrypt(sk,enc_input), keygen(sk,key_gen_input))
