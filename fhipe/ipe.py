@@ -26,6 +26,8 @@ sys.path.insert(1, os.path.abspath('../charm'))
 
 from charm.toolbox.pairinggroup import PairingGroup,ZR,G1,G2,GT,pair
 from subprocess import call, Popen, PIPE
+from numpy.polynomial import polynomial as P
+import numpy as np
 
 def setup(n, group_name = 'MNT159', simulated = False):
   """
@@ -197,37 +199,52 @@ def solve_dlog_bsgs(g, h, dlog_max):
         return i * alpha + j
   return -1
 
-def generateVectorX(a, x, k, sk):
+def generateVectorX(a, x, k, sk, padding):
   (detB, B, Bstar, group, g1, g2) = sk
 
   hash_a = group.hash(a)
-  enc_input = [hash_a, group.random(ZR), 0, 0, 0, 0, 0] #seems to be an issue with the random element
-  key_gen_input = [k, 0, group.random(ZR), 0, 0, 0, 0] #If I set it to a constant value then it is fine otherwise it will not be fine
+  enc_input = [hash_a, group.random(ZR),0]+padding #seems to be an issue with the random element
+  key_gen_input = [k, 0, group.random(ZR)]+padding #If I set it to a constant value then it is fine otherwise it will not be fine
   encr_results = encrypt(sk,enc_input)
   return (encr_results, keygen(sk,key_gen_input))
 
-def generateVectorY(b,x, x_q, k, sk):
+def generatePolynomial(x):
+  new_poly = [1];
+  for i in x:
+    if len(new_poly) == 1:
+      new_poly.append(i)
+    else:
+      add_poly = [i * j for j in new_poly]
+      for j in range(0, len(add_poly)-1):
+        new_poly[len(add_poly) - j -1] += add_poly[j]
+      new_poly.append(add_poly[len(add_poly)-1])
+  return new_poly
+
+def generateVectorY(b,x_q, x, k, sk):
   (detB, B, Bstar, group, g1, g2) = sk
 
   hash_b = group.hash(b)
+  hash_xq = [-1 * group.hash(i) for i in x_q]
   hash_x = group.hash(x)
-  hash_xq = group.hash(x_q)
+  p_x = generatePolynomial(hash_xq)
 
-  enc_input =     [hash_b, hash_x**3, hash_x**2, hash_x, 1        , group.random(ZR),0]
-  key_gen_input = [k     ,         0,         0,     -1, hash_xq  , 0               , group.random(ZR)]
+  enc_input =  [hash_b]
+  #, hash_x**3, hash_x**2, hash_x, 1        , group.random(ZR),0]
+  for i in range(len(hash_xq),0,-1):
+    enc_input.append((hash_x**i))
+  enc_input.append(1)
+
+  key_gen_input = [k]
+  #,         0,         0,     -1, hash_xq  , 0               , group.random(ZR)]
+  for i in p_x:
+    key_gen_input.append(i)
+
+  key_gen_input.append(0)
+  key_gen_input.append(group.random(ZR))
+
+  enc_input.append(group.random(ZR))
+  enc_input.append(0)
+
   return (encrypt(sk,enc_input), keygen(sk,key_gen_input))
 
-def generatePolynomial(x):
-  group = PairingGroup("MNT159")
-  poly = [1,-x]
-  unsolvable = [1,0,group.random(G1)]
-  new_poly = [unsolvable[0]*i for i in poly]
-  
-  new_poly[len(new_poly)] = 0
-  new_poly[len(new_poly)] = 0
-    
-  for i in range(0,len(poly)):
-    new_poly[2+i] += unsolvable[2]*poly[i];
-
-  return new_poly;
 

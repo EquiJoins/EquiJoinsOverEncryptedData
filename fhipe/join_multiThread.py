@@ -29,7 +29,7 @@ def inner_join(a_table,b_table):
 	while(b_row != ''):
 		b_values = b_row.split(',');
 
-		(ct2,tag2) = ipe.generateVectorY(b_values[0].rstrip().encode(), b_values[1].rstrip(), str(3), k, sk)
+		(ct2,tag2) = ipe.generateVectorY(b_values[0].rstrip().encode(), b_values[1].rstrip(), target_value, k, sk)
 
 		b_enc_attributes.append((tag2,ct2))
 		b_pt_attributes.append(b_values);
