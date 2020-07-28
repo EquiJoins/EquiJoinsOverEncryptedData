@@ -1,0 +1,35 @@
+import ipe
+
+def encrypt_row(matrix_len, target_values, sk, row_values, k, join_val):
+	assert(len(target_values) == len(row_values))
+	padding = []
+	for i in range(len(target_values), matrix_len):
+		padding.append(0)
+	padding.append(0)
+
+	if(len(target_values) == 0):
+		(ct1,tag1) = ipe.generateVectorX(join_val, 0, k, sk, padding)
+		return (ct1,tag1)
+	else:
+		(ct2,tag2) = ipe.generateVectorY(join_val, 
+			row_values, target_values, k, sk)
+		return (ct2,tag2)
+
+def encrypt_table(matrix_len, table, target_values, indicies, sk, k):
+	enc_attributes = [];
+	pt_attributes = [];
+	table_row = table.readline().rstrip()
+
+	while(table_row != ''):
+		table_values = table_row.split(',');
+		row_attributes = []
+		if(len(target_values) > 0):
+			row_attributes = [table_values[i].rstrip() for i in indicies]
+
+		(tag,ct) = encrypt_row(matrix_len, target_values, sk, row_attributes, k, table_values[0].rstrip().encode())
+
+		enc_attributes.append((tag,ct))
+		pt_attributes.append(row_attributes);
+
+		table_row = table.readline().rstrip()
+	return (enc_attributes,pt_attributes)

@@ -1,15 +1,53 @@
-# Acknowledgements
-Contributions from Kevin Lewi for external FHIPE code
+# An Implementation of Function-Hiding Inner Product Encryption (FHIPE) #
 
-# Current Issues
-The Kevin Lewi FHIPE implementation is not compatible with systems running open ssl 1.1.1 and above due to changes in how structures like BIGINT are being handled. It is recommended to either downgrade to openssl 1.02 or to try finding a wrapper that allows for compatibility fixes
+This is an implementation of the function-hiding inner product encryption scheme 
+described here: (link to be posted)
 
-# Summary of files
-Ext_Files - contains the compiled c libraries from Kevin Lewi's code
+This implementation is a research prototype built for micro-benchmarking 
+purposes, and is not intended to be used in production-level code as it has not 
+been carefully analyzed for potential security flaws.
 
-External_Files - contains the libraries charm and flint - currently bein gused by Kevin Lewi's implementation. Given that there is no c api, there is no current use for them in the UDFs
+Authors:
+ * Kevin Lewi, Stanford University
+ * Sam Kim, Stanford University
+ * Avradip Mandal, Fujitsu Laboratories of America
+ * Hart Montgomery, Fujitsu Laboratories of America
+ * Arnab Roy, Fujitsu Laboratories of America
+ * David J. Wu, Stanford University
 
-UDF.cpp        - cpp file containing code for the UDF
+Contact Kevin Lewi for questions about the code:
+  klewi@cs.stanford.edu
 
-# Testing Guidelines
-**Proposed approach**: Modify UDF.cpp to contain an encrypt function which modifies the values in the row to the ciphertext, then run the scan UDF to verify if the scan function is working
+## Prerequisites ##
+
+Make sure you have the following installed:
+ * [Python 3.x.x](https://www.python.org/downloads/release/python-350/)
+ * [GMP 5.x](http://gmplib.org/)
+ * [PBC](http://crypto.stanford.edu/pbc/download.html) 
+ * [OpenSSL](http://www.openssl.org/source/)
+
+## Installation ##
+
+    git clone --recursive https://github.com/kevinlewi/fhipe.git
+    cd fhipe
+    sudo make install (use `make install-mac` if running on MAC OS X)
+	
+## Running a Test ##
+
+	python3 tests/test_ipe.py
+
+## Modules ##
+
+This library ships with the following modules:
+ * **Inner Product Encryption:** In fhipe/ipe.py, implements function-hiding 
+   inner product encryption
+ * **Two-input Functional Encryption.** In fhipe/mife.py, implements secret-key 
+   small-domain two-input functional encryption for arbitrary functions
+
+### Submodules ###
+
+We rely on the following two submodules:
+ * [FLINT](http://flintlib.org/) for the C backend 
+ * [Charm](http://charm-crypto.com/) for the pairings implementation 
+
+
