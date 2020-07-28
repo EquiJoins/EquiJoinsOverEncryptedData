@@ -205,6 +205,7 @@ def generateVectorX(a, x, k, sk, padding):
   hash_a = group.hash(a)
   enc_input = [hash_a, group.random(ZR),0]+padding #seems to be an issue with the random element
   key_gen_input = [k, 0, group.random(ZR)]+padding #If I set it to a constant value then it is fine otherwise it will not be fine
+
   encr_results = encrypt(sk,enc_input)
   return (encr_results, keygen(sk,key_gen_input))
 
@@ -256,7 +257,6 @@ def generateVectorY(b,x_q, x, k, sk):
 
   enc_input.append(group.random(ZR))
   enc_input.append(0)
-
   return (encrypt(sk,enc_input), keygen(sk,key_gen_input))
 
 
