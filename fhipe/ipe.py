@@ -210,29 +210,41 @@ def generateVectorX(a, x, k, sk, padding):
 
 def generatePolynomial(x):
   new_poly = [1];
+  x = [ -1 * i for i in x]
   for i in x:
     if len(new_poly) == 1:
       new_poly.append(i)
     else:
       add_poly = [i * j for j in new_poly]
+      # print("add poly is "+str(add_poly))
+      # print(new_poly)
+      new_poly.append(add_poly[len(add_poly)-1]) #shift the existing elements forward
+      # print("Added "+str(add_poly[len(add_poly)-1])+" to new poly")
+      # print(new_poly)
       for j in range(0, len(add_poly)-1):
-        new_poly[len(add_poly) - j -1] += add_poly[j]
-      new_poly.append(add_poly[len(add_poly)-1])
+        # print("Added "+str(add_poly[j])+"to new poly at index "+str(j + 1))
+        new_poly[(j + 1)] += add_poly[j]
+    # print(new_poly)
   return new_poly
 
 def generateVectorY(b,x_q, x, k, sk):
+
   (detB, B, Bstar, group, g1, g2) = sk
 
   hash_b = group.hash(b)
-  hash_xq = [-1 * group.hash(i) for i in x_q]
-  hash_x = group.hash(x)
+  hash_xq = [group.hash(i) for i in x_q]
+  hash_x = [group.hash(i) for i in x]
+
   p_x = generatePolynomial(hash_xq)
 
   enc_input =  [hash_b]
   #, hash_x**3, hash_x**2, hash_x, 1        , group.random(ZR),0]
   for i in range(len(hash_xq),0,-1):
-    enc_input.append((hash_x**i))
-  enc_input.append(1)
+    s = 0
+    for j in hash_x:
+      s += j**i
+    enc_input.append(s)
+  enc_input.append(len(hash_x))
 
   key_gen_input = [k]
   #,         0,         0,     -1, hash_xq  , 0               , group.random(ZR)]
@@ -248,3 +260,35 @@ def generateVectorY(b,x_q, x, k, sk):
   return (encrypt(sk,enc_input), keygen(sk,key_gen_input))
 
 
+# def encryptRow(row,x_q, x, k, sk, padding):
+#   (detB, B, Bstar, group, g1, g2) = sk
+
+#   hash_b = group.hash(b)
+#   hash_xq = [group.hash(i) for i in x_q]
+
+#   enc_input =  [hash_b]
+#   #, hash_x**3, hash_x**2, hash_x, 1        , group.random(ZR),0]
+#   for i in range(len(hash_x),0,-1):
+#     s = 0
+#     for j in hash_xq:
+#       s += j**i
+#     enc_input.append(s)
+#   enc_input.append(len(hash_xq))
+
+#   enc_input.append(group.random(ZR))
+#   enc_input.append(0)
+
+#   return (encrypt(sk,enc_input))
+
+# def keyGen:
+#   (detB, B, Bstar, group, g1, g2) = sk
+#   key_gen_input = [k]
+#   #,         0,         0,     -1, hash_xq  , 0               , group.random(ZR)]
+#   hash_x = [group.hash(i) for i in x]
+#   p_x = generatePolynomial(hash_x)
+
+#   for i in p_x:
+#     key_gen_input.append(i)
+
+#   key_gen_input.append(0)
+#   key_gen_input.append(group.random(ZR))

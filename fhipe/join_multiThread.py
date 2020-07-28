@@ -23,28 +23,10 @@ def inner_join(a_table,b_table):
 	b_pt_attributes = [];
 	threads = [];
 	queues = [];
-	(pp,sk, k) = ipe.setup(7);
+	target_values = [str(3),str(4),str(1)]
+	padding = []
 
-	b_row = b_table.readline().rstrip()
-	while(b_row != ''):
-		b_values = b_row.split(',');
-
-		(ct2,tag2) = ipe.generateVectorY(b_values[0].rstrip().encode(), b_values[1].rstrip(), target_value, k, sk)
-
-		b_enc_attributes.append((tag2,ct2))
-		b_pt_attributes.append(b_values);
-
-		b_row = b_table.readline().rstrip()
-
-	a_row = a_table.readline().rstrip()
-	while(a_row != ''):
-		a_values = a_row.split(',');
-		(ct1,tag1) = ipe.generateVectorX(a_values[0].rstrip().encode(), 3, k, sk)
-		a_pt_attributes.append(a_values);
-		a_enc_attributes.append((ct1,tag1))
-		a_row = a_table.readline().rstrip()
-
-
+	#This is the actual join code
 	for x in range(0,len(a_pt_attributes)):
 		(tag2, ct2) = a_enc_attributes[x];
 		q = multiprocessing.Queue()
@@ -64,7 +46,7 @@ def inner_join(a_table,b_table):
 	print("Total memory used "+str(sys.getsizeof(a_enc_attributes)+sys.getsizeof(b_enc_attributes)+sys.getsizeof(a_pt_attributes)+sys.getsizeof(b_pt_attributes))+"bytes")
 	print("Peak memory usage "+str(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/resource.getpagesize()))
 	print(str(end - start)+"\n")
-
+	print(ret)
 opt = sys.argv
 if(len(opt) != 3):
 	print("Expecting 2 input tables")
