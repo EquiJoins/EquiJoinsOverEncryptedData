@@ -1,0 +1,4 @@
+# Specify filepatterns you want git to ignore.
+*.pyc
+*.o
+gen_matrices
