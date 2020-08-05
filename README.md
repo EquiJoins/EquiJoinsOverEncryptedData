@@ -51,3 +51,16 @@ We rely on the following two submodules:
  * [Charm](http://charm-crypto.com/) for the pairings implementation 
 
 
+### Development ###
+
+The organization of the py submodules are as follows
+ * fhipe.py contains the code required to generate the vectors, ciphertext and tag
+ * join.py contains the code to run the actual join query - currently it is a nested inner loop join
+ * encrypt_functions.py contains the code required to encrypt a specific row or table - typically done as a preprocessing step
+
+Typical workflow
+ * Load in a table from a csv file to a 2d array
+ * Determine the number of attributes that are in the query, the vector length is equal to the number of
+ attributes plus 4
+ * Generate a secret key by calling ipe.setup(int) and passing in the vector length
+ 

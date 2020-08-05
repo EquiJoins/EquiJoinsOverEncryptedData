@@ -1,5 +1,9 @@
 import ipe
+#Encrypt row function
+# Takes in the matrix length, an array of target values, a secret key, the attributes in a row, 
+#  a random value used for generating the join tag, the actual join attribute of the row
 
+# outputs a ciphertext and tag pair
 def encrypt_row(matrix_len, target_values, sk, row_values, k, join_val):
 	assert(len(target_values) == len(row_values))
 	padding = []
@@ -14,7 +18,13 @@ def encrypt_row(matrix_len, target_values, sk, row_values, k, join_val):
 		(ct2,tag2) = ipe.generateVectorY(join_val, 
 			row_values, target_values, k, sk)
 		return (ct2,tag2)
+#Encrypt row function
+# Takes in the matrix length, the 2d array that represents a table, an array of target value
+# an array of indicies corresponding to the attributes of the tables that the target values are from,
+# a secret key, a random value for generating the join tag
 
+# outputs a pair of lists, one is a list of pairs of ciphertext and tag pairs, the other is an array of
+# the plaintext attributes in the table
 def encrypt_table(matrix_len, table, target_values, indicies, sk, k):
 	enc_attributes = [];
 	pt_attributes = [];

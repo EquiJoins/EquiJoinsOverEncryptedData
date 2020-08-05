@@ -17,4 +17,4 @@ target_values = [str(3)]
 (table_1_enc, table_1_pt) = encrypt.encrypt_table(len(target_values) , open(opt[1]),[],[], sk, k)
 (table_2_enc, table_2_pt) = encrypt.encrypt_table(len(target_values) , open(opt[2]),target_values,indicies, sk, k)
 
-join.inner_join(table_1_enc,table_1_pt,table_2_enc,table_2_pt, pp)
+join.inner_join(table_1_enc,table_1_pt,table_2_enc,table_2_pt, pp, target_values, indicies)

@@ -2,16 +2,26 @@ from fhipe import ipe
 from timeit import default_timer as timer
 import multiprocessing,resource
 import sys
-#Query being run is
-# SELECT * FROM a, b WHERE b.x = 3
-def join_b_thread(pp, tag2, ct2, b_pt_attributes, b_enc_attributes, q, count):
+
+#Thread that queries all rows of the B table for a row that meets the join predicate and has the
+# matching join attribute
+def indexesMatch(target, indicies, row):
+	for t in range(0,len(indicies)):
+		if(target[t] != row[indicies[t]-1]):
+			return False;
+	return True;
+#Writes to a queue the index of the table with the matching join attribute or -1 otherwise
+def join_b_thread(pp, tag2, ct2, b_pt_attributes, b_enc_attributes, q, count, target, indicies):
 	for y in range(0,len(b_pt_attributes)):
-			if((b_pt_attributes[y])[0] == str(3)):
+			if(indexesMatch(target, indicies, b_pt_attributes[y])):
 				(tag1, ct1) = b_enc_attributes[y];
 				if(ipe.decrypt(pp, tag2, ct2) == ipe.decrypt(pp, tag1, ct1)):
 					q.put(count);
 	q.put(-1);
-def inner_join(a_enc_attributes,a_pt_attributes,b_enc_attributes,b_pt_attributes,pp):
+
+# Function that handles the inner join, takes in a vector of encrypted attributes and plaintext 
+# attributes
+def inner_join(a_enc_attributes,a_pt_attributes,b_enc_attributes,b_pt_attributes,pp, target, indicies):
 	ret = []
 	threads = [];
 	queues = [];
@@ -22,7 +32,7 @@ def inner_join(a_enc_attributes,a_pt_attributes,b_enc_attributes,b_pt_attributes
 		q = multiprocessing.Queue()
 		threads.append(
 			multiprocessing.Process(
-				target=join_b_thread,args=(pp, tag2, ct2,b_pt_attributes,b_enc_attributes,q,x)));
+				target=join_b_thread,args=(pp, tag2, ct2,b_pt_attributes,b_enc_attributes,q,x, target, indicies)));
 		queues.append(q);
 	start = timer()	
 	for t in threads:
