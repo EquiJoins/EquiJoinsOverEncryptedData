@@ -8,7 +8,6 @@ import sys
 def indexesMatch(target, indicies, row):
 	for t in range(0,len(indicies)):
 		if(target[t] != row[indicies[t]-1]):
-			print(str(target[t])+","+str(row[indicies[t]-1]))
 			return False;
 	return True;
 #Writes to a queue the index of the table with the matching join attribute or -1 otherwise
