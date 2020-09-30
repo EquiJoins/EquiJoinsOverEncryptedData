@@ -1,22 +1,25 @@
-# An Implementation of Function-Hiding Inner Product Encryption (FHIPE) #
+# Search Over Encrypted Data
 
-This is an implementation of the function-hiding inner product encryption scheme 
-described here: (link to be posted)
+This is an implementation of an algorithm to search over encrypted data.
+Specifically, given two tables `A` and `B`, some join attributes `A.a` and `B.b`,
+and a filter clause `A.x = c_a and B.y = c_b`, we would like to perform the following query
+```sql
+SELECT * FROM A
+INNER JOIN B ON A.x = B.x
+WHERE A.x = c_a AND B.y = c_b
+```
+with minimal leakage. That is, using a (master) secret key, 
+we would like to encrypt the tables (i.e. their rows),
+execute an encrypted query on them, resulting in the retrieval of the correct rows.
 
-This implementation is a research prototype built for micro-benchmarking 
-purposes, and is not intended to be used in production-level code as it has not 
-been carefully analyzed for potential security flaws.
+See [this paper](http://www.fkerschbaum.org/icde19.pdf) for a formal description
+of the algorithm implemented in this repository.
 
-Authors:
- * Kevin Lewi, Stanford University
- * Sam Kim, Stanford University
- * Avradip Mandal, Fujitsu Laboratories of America
- * Hart Montgomery, Fujitsu Laboratories of America
- * Arnab Roy, Fujitsu Laboratories of America
- * David J. Wu, Stanford University
-
-Contact Kevin Lewi for questions about the code:
-  klewi@cs.stanford.edu
+This implementation uses a
+[function-hiding inner product encryption scheme](https://eprint.iacr.org/2016/440.pdf)
+whose code is contained in [fhipe](fhipe). Section 2.3 of the paper is the API specification
+for the functionality implemented in [fhipe/ipe.py](fhipe/ipe.py).
+See the [fhipe project's readme](https://github.com/kevinlewi/fhipe) for more details.
 
 ## Prerequisites ##
 
@@ -28,35 +31,29 @@ Make sure you have the following installed:
 
 ## Installation ##
 
-    git clone --recursive https://github.com/kevinlewi/fhipe.git
-    cd fhipe
-    sudo make install (use `make install-mac` if running on MAC OS X)
-	
-## Running a Test ##
+```bash
+ $ git clone --recursive https://git.uwaterloo.ca/fkerschb/encrypted-joins.git
+ $ cd encryped-joins
+ $ sudo make install # ( or use `make install-mac` if running on MAC OS X)
+```
 
-	python3 tests/test_ipe.py
+### Build Errors and How to Fix Them ###
+See the following list for common build errors and how to fix them.
+1. **Error**: `charm/core/math/integer/integermodule.c:129:19: error: dereferencing pointer to incomplete type ‘BIGNUM {aka struct bignum_st}’`
+ 
+   **Resolution**: this is a [known issue](https://github.com/JHUISI/charm/issues/135) with an older version of `charm`. 
+   Using the latest dev branch of the `charm` repo should resolve this (i.e. `cd charm` and `git checkout dev`).
 
-## Modules ##
+## Running Experiments ##
 
-This library ships with the following modules:
- * **Inner Product Encryption:** In fhipe/ipe.py, implements function-hiding 
-   inner product encryption
- * **Two-input Functional Encryption.** In fhipe/mife.py, implements secret-key 
-   small-domain two-input functional encryption for arbitrary functions
+To be added.
 
-### Submodules ###
-
-We rely on the following two submodules:
- * [FLINT](http://flintlib.org/) for the C backend 
- * [Charm](http://charm-crypto.com/) for the pairings implementation 
-
-
-### Development ###
+## Notes from Previous Development ##
 
 The organization of the py submodules are as follows
- * fhipe.py contains the code required to generate the vectors, ciphertext and tag
- * join.py contains the code to run the actual join query - currently it is a nested inner loop join
- * encrypt_functions.py contains the code required to encrypt a specific row or table - typically done as a preprocessing step
+ * [fhipe/ipe.py](fhipe/ipe.py) contains the code required to generate the vectors, ciphertext and tag
+ * [fhipe/join.py](fhipe/join.py) contains the code to run the actual join query - currently it is a nested inner loop join
+ * [fhipe/encrypt_functions.py](fhipe/encrypt_functions.py) contains the code required to encrypt a specific row or table - typically done as a preprocessing step
 
 Typical workflow
  * Load in a table from a csv file to a 2d array
