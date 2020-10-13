@@ -49,7 +49,6 @@ def setup(n, group_name = 'MNT159', simulated = False):
   group = PairingGroup(group_name)
   g1 = group.random(G1)
   g2 = group.random(G2)
-  k = group.random(ZR)
 
   assert g1.initPP(), "ERROR: Failed to init pre-computation table for g1."
   assert g2.initPP(), "ERROR: Failed to init pre-computation table for g2."
@@ -74,7 +73,7 @@ def setup(n, group_name = 'MNT159', simulated = False):
 
   pp = ()
   sk = (detB, B, Bstar, group, g1, g2)
-  return (pp, sk, k)
+  return (pp, sk)
 
 def keygen(sk, x): #outputs the token
   """
@@ -199,16 +198,6 @@ def solve_dlog_bsgs(g, h, dlog_max):
         return i * alpha + j
   return -1
 
-def generateVectorX(a, x, k, sk, padding):
-  (detB, B, Bstar, group, g1, g2) = sk
-
-  hash_a = group.hash(a)
-  enc_input = [hash_a, group.random(ZR),0]+padding #seems to be an issue with the random element
-  key_gen_input = [k, 0, group.random(ZR)]+padding #If I set it to a constant value then it is fine otherwise it will not be fine
-
-  encr_results = encrypt(sk,enc_input)
-  return (encr_results, keygen(sk,key_gen_input))
-
 def generatePolynomial(x):
   new_poly = [1];
   x = [ -1 * i for i in x]
@@ -228,67 +217,36 @@ def generatePolynomial(x):
     # print(new_poly)
   return new_poly
 
-def generateVectorY(b,x_q, x, k, sk):
+# returns [H(a), H(x)^2, H(x), 1, 0, R] where
+# a would be the join attribute
+# x is an attribute in a where clause, i.e. x = C 
+# ---------------------------------------------------------  IMPROVEMENT : DONT NEED MSK. just need group
+def generateRowVector(msk, a, x):
+  (detB, B, Bstar, group, g1, g2) = msk
+  h_a = group.hash(a)
+  h_x = group.hash(x) 
+  r = group.random(ZR)
+  return [h_a, h_x**2, h_x, 1, 0, r]
 
-  (detB, B, Bstar, group, g1, g2) = sk
+# returns [k, 0, 1, -H(x_q), R, 0] where
+# x_q is the 'C' in generateVectorX
+# k is a per-query secret key
+def generateQueryVector(msk, k, x_q):
+  (detB, B, Bstar, group, g1, g2) = msk
+  h_xq = group.hash(x_q)
+  #p_x = generatePolynomial(hash_xq)
+  r = group.random(ZR)
+  return [k, 0, 1, -1*h_xq, r, 0]
 
-  hash_b = group.hash(b)
-  hash_xq = [group.hash(i) for i in x_q]
-  hash_x = [group.hash(i) for i in x]
+# given a master secret key msk and a vector a representing a db row
+# encryptRow returns a ciphertext representing an encrypted row
+def encryptRow(msk, a, x):
+  return encrypt(msk, generateRowVector(msk, a, x))
 
-  p_x = generatePolynomial(hash_xq)
+# given a master secret key msk and a parameter k,
+# encryptQuery returns a ciphertext representing an encrypted query
+def encryptQuery(msk, k, x_q):
+  return keygen(msk, generateQueryVector(msk, k, x_q))
 
-  enc_input =  [hash_b]
-  #, hash_x**3, hash_x**2, hash_x, 1        , group.random(ZR),0]
-  for i in range(len(hash_xq),0,-1):
-    s = 0
-    for j in hash_x:
-      s += j**i
-    enc_input.append(s)
-  enc_input.append(len(hash_x))
-
-  key_gen_input = [k]
-  #,         0,         0,     -1, hash_xq  , 0               , group.random(ZR)]
-  for i in p_x:
-    key_gen_input.append(i)
-
-  key_gen_input.append(0)
-  key_gen_input.append(group.random(ZR))
-
-  enc_input.append(group.random(ZR))
-  enc_input.append(0)
-  return (encrypt(sk,enc_input), keygen(sk,key_gen_input))
-
-
-# def encryptRow(row,x_q, x, k, sk, padding):
-#   (detB, B, Bstar, group, g1, g2) = sk
-
-#   hash_b = group.hash(b)
-#   hash_xq = [group.hash(i) for i in x_q]
-
-#   enc_input =  [hash_b]
-#   #, hash_x**3, hash_x**2, hash_x, 1        , group.random(ZR),0]
-#   for i in range(len(hash_x),0,-1):
-#     s = 0
-#     for j in hash_xq:
-#       s += j**i
-#     enc_input.append(s)
-#   enc_input.append(len(hash_xq))
-
-#   enc_input.append(group.random(ZR))
-#   enc_input.append(0)
-
-#   return (encrypt(sk,enc_input))
-
-# def keyGen:
-#   (detB, B, Bstar, group, g1, g2) = sk
-#   key_gen_input = [k]
-#   #,         0,         0,     -1, hash_xq  , 0               , group.random(ZR)]
-#   hash_x = [group.hash(i) for i in x]
-#   p_x = generatePolynomial(hash_x)
-
-#   for i in p_x:
-#     key_gen_input.append(i)
-
-#   key_gen_input.append(0)
-#   key_gen_input.append(group.random(ZR))
+def encryptTable(msk, table, a, x):
+  return [encryptRow(msk, row[a], row[x]) for row in table]
