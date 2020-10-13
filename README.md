@@ -6,9 +6,9 @@ and a filter clause `A.x = c_a and B.y = c_b`, we would like to perform the foll
 ```sql
 SELECT * FROM A
 INNER JOIN B ON A.x = B.x
-WHERE A.x = c_a AND B.y = c_b
+WHERE A.a IN (s_1) AND B.b IN (t_1)
 ```
-with minimal leakage. That is, using a (master) secret key, 
+(for constants `s_1`, `t_1`), with minimal leakage. That is, using a (master) secret key, 
 we would like to encrypt the tables (i.e. their rows),
 execute an encrypted query on them, resulting in the retrieval of the correct rows.
 
