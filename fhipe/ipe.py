@@ -199,6 +199,7 @@ def solve_dlog_bsgs(g, h, dlog_max):
   return -1
 
 def generatePolynomial(x):
+  if len(x) == 0: return [0]
   new_poly = [1];
   x = [ -1 * i for i in x]
   for i in x:
@@ -221,32 +222,51 @@ def generatePolynomial(x):
 # a would be the join attribute
 # x is an attribute in a where clause, i.e. x = C 
 # ---------------------------------------------------------  IMPROVEMENT : DONT NEED MSK. just need group
-def generateRowVector(msk, a, x):
+def generateRowVector(msk, a, x, max_degree):
   (detB, B, Bstar, group, g1, g2) = msk
   h_a = group.hash(a)
-  h_x = group.hash(x) 
+
+  h_x = group.hash(x)
+  curr_pow = 1
+  powers_of_x = []
+  for p in range(max_degree + 1):
+    powers_of_x.append(curr_pow)
+    curr_pow = curr_pow * h_x
+  powers_of_x.reverse()
+
+  # return [h(a), h(x)^max_degree, h(x)^(max_degree - 1), ..., h(x)^0, 0, R]
   r = group.random(ZR)
-  return [h_a, h_x**2, h_x, 1, 0, r]
+  return [h_a] + powers_of_x + [0, r]
 
 # returns [k, 0, 1, -H(x_q), R, 0] where
 # x_q is the 'C' in generateVectorX
 # k is a per-query secret key
-def generateQueryVector(msk, k, x_q):
+def generateQueryVector(msk, k, x_q, x_q_max_size):
   (detB, B, Bstar, group, g1, g2) = msk
-  h_xq = group.hash(x_q)
-  #p_x = generatePolynomial(hash_xq)
+
+  # get coefficients of polynomial based on h_xq
+  h_xq = [group.hash(q) for q in x_q]
+  random_factor = group.random(ZR)
+
+  poly_coeffs = ([0] * (x_q_max_size - len(x_q))) + [random_factor * coeff for coeff in generatePolynomial(h_xq)]
+
+  # return [k, R'*c_0, R'*c_1, ..., R'*c_n, R, 0]
   r = group.random(ZR)
-  return [k, 0, 1, -1*h_xq, r, 0]
+  return [k] + poly_coeffs + [r, 0]
 
 # given a master secret key msk and a vector a representing a db row
 # encryptRow returns a ciphertext representing an encrypted row
-def encryptRow(msk, a, x):
-  return encrypt(msk, generateRowVector(msk, a, x))
+def encryptRow(msk, a, x, max_degree):
+  return encrypt(msk, generateRowVector(msk, a, x, max_degree))
 
 # given a master secret key msk and a parameter k,
 # encryptQuery returns a ciphertext representing an encrypted query
-def encryptQuery(msk, k, x_q):
-  return keygen(msk, generateQueryVector(msk, k, x_q))
+def encryptQuery(msk, k, x_q, x_q_max_size):
+  return keygen(msk, generateQueryVector(msk, k, x_q, x_q_max_size))
 
-def encryptTable(msk, table, a, x):
-  return [encryptRow(msk, row[a], row[x]) for row in table]
+def encryptTable(msk, table, pk, a, x, max_degree):
+  return [(row[pk], encryptRow(msk, row[a], row[x], max_degree)) for row in table]
+
+
+# TODO
+# rename arguments to more descriptive names (e.g. a -> join_key)
