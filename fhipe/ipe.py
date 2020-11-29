@@ -265,7 +265,7 @@ def encryptQuery(msk, k, x_q, x_q_max_size):
   return keygen(msk, generateQueryVector(msk, k, x_q, x_q_max_size))
 
 def encryptTable(msk, table, pk, a, x, max_degree):
-  return [(row[pk], encryptRow(msk, row[a], row[x], max_degree)) for row in table]
+  return [(row[pk], row[x], encryptRow(msk, row[a], row[x], max_degree)) for row in table]
 
 
 # TODO
