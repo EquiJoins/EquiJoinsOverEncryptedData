@@ -1,0 +1,954 @@
+--------------------------- sf=0.01
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 4.9891371727s overall
+time spent NOT doing decryption: 0.0117239952087s
+time per decryption took: 30.1661404696ms
+num matches: 3
+
+selectivity=1/50 took: 9.12259888649s overall
+time spent NOT doing decryption: 0.0172681808472s
+time per decryption took: 27.5919112292ms
+num matches: 8
+
+selectivity=1/25 took: 17.5155639648s overall
+time spent NOT doing decryption: 0.0183055400848s
+time per decryption took: 26.5109976133ms
+num matches: 22
+
+selectivity=1/12.5 took: 35.7018280029s overall
+time spent NOT doing decryption: 0.0326187610626s
+time per decryption took: 27.0426150431ms
+num matches: 100
+
+selectivity=1/100 took: 4.65627503395s overall
+time spent NOT doing decryption: 0.0128877162933s
+time per decryption took: 28.1417413191ms
+num matches: 3
+
+selectivity=1/50 took: 9.58024597168s overall
+time spent NOT doing decryption: 0.012110710144s
+time per decryption took: 28.9943492774ms
+num matches: 8
+
+selectivity=1/25 took: 18.8640890121s overall
+time spent NOT doing decryption: 0.0173320770264s
+time per decryption took: 28.5556923259ms
+num matches: 22
+
+selectivity=1/12.5 took: 37.7364931107s overall
+time spent NOT doing decryption: 0.0298480987549s
+time per decryption took: 28.5872972039ms
+num matches: 100
+
+selectivity=1/100 took: 4.80567002296s overall
+time spent NOT doing decryption: 0.0127129554749s
+time per decryption took: 29.0482246515ms
+num matches: 3
+
+selectivity=1/50 took: 9.09158992767s overall
+time spent NOT doing decryption: 0.0135569572449s
+time per decryption took: 27.5091908195ms
+num matches: 8
+
+selectivity=1/25 took: 18.2996070385s overall
+time spent NOT doing decryption: 0.0185985565186s
+time per decryption took: 27.6984977ms
+num matches: 22
+
+selectivity=1/12.5 took: 43.318322897s overall
+time spent NOT doing decryption: 0.0328404903412s
+time per decryption took: 32.8168934091ms
+num matches: 100
+
+selectivity=1/100 took: 5.33767080307s overall
+time spent NOT doing decryption: 0.0150773525238s
+time per decryption took: 32.2581421245ms
+num matches: 3
+
+selectivity=1/50 took: 10.8150148392s overall
+time spent NOT doing decryption: 0.0240082740784s
+time per decryption took: 32.7000198942ms
+num matches: 8
+
+selectivity=1/25 took: 20.9680769444s overall
+time spent NOT doing decryption: 0.0219933986664s
+time per decryption took: 31.7364902207ms
+num matches: 22
+
+selectivity=1/12.5 took: 41.2178378105s overall
+time spent NOT doing decryption: 0.0341377258301s
+time per decryption took: 31.2234269027ms
+num matches: 100
+
+selectivity=1/100 took: 4.47177100182s overall
+time spent NOT doing decryption: 0.0122530460358s
+time per decryption took: 27.0273815502ms
+num matches: 3
+
+selectivity=1/50 took: 9.58481621742s overall
+time spent NOT doing decryption: 0.0181155204773s
+time per decryption took: 28.990002112ms
+num matches: 8
+
+selectivity=1/25 took: 21.2028548717s overall
+time spent NOT doing decryption: 0.0251173973083s
+time per decryption took: 32.0874810219ms
+num matches: 22
+
+selectivity=1/12.5 took: 40.5461621284s overall
+time spent NOT doing decryption: 0.031111240387s
+time per decryption took: 30.7164904383ms
+num matches: 100
+
+--------------------------- sf=0.02
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 10.6354138851s overall
+time spent NOT doing decryption: 0.0243315696716s
+time per decryption took: 32.1547948953ms
+num matches: 5
+
+selectivity=1/50 took: 20.6944878101s overall
+time spent NOT doing decryption: 0.0326135158539s
+time per decryption took: 31.3058701429ms
+num matches: 11
+
+selectivity=1/25 took: 41.7446308136s overall
+time spent NOT doing decryption: 0.0439150333405s
+time per decryption took: 31.5914513487ms
+num matches: 48
+
+selectivity=1/12.5 took: 89.3618381023s overall
+time spent NOT doing decryption: 0.0713217258453s
+time per decryption took: 33.8221652941ms
+num matches: 184
+
+selectivity=1/100 took: 10.3805119991s overall
+time spent NOT doing decryption: 0.0246007442474s
+time per decryption took: 31.3815492572ms
+num matches: 5
+
+selectivity=1/50 took: 22.6577558517s overall
+time spent NOT doing decryption: 0.0313892364502s
+time per decryption took: 34.2823736595ms
+num matches: 11
+
+selectivity=1/25 took: 42.436524868s overall
+time spent NOT doing decryption: 0.0373647212982s
+time per decryption took: 32.1205758687ms
+num matches: 48
+
+selectivity=1/12.5 took: 83.1090610027s overall
+time spent NOT doing decryption: 0.0626604557037s
+time per decryption took: 31.4569699042ms
+num matches: 184
+
+selectivity=1/100 took: 10.3324129581s overall
+time spent NOT doing decryption: 0.0258572101593s
+time per decryption took: 31.2319871151ms
+num matches: 5
+
+selectivity=1/50 took: 21.2547419071s overall
+time spent NOT doing decryption: 0.0313847064972s
+time per decryption took: 32.1566018191ms
+num matches: 11
+
+selectivity=1/25 took: 41.8663768768s overall
+time spent NOT doing decryption: 0.040390253067s
+time per decryption took: 31.6863535029ms
+num matches: 48
+
+selectivity=1/12.5 took: 88.5259590149s overall
+time spent NOT doing decryption: 0.0663380622864s
+time per decryption took: 33.507432179ms
+num matches: 184
+
+selectivity=1/100 took: 11.0440759659s overall
+time spent NOT doing decryption: 0.0268113613129s
+time per decryption took: 33.3856503169ms
+num matches: 5
+
+selectivity=1/50 took: 20.4720549583s overall
+time spent NOT doing decryption: 0.0255377292633s
+time per decryption took: 30.9795715592ms
+num matches: 11
+
+selectivity=1/25 took: 43.0644829273s overall
+time spent NOT doing decryption: 0.0366458892822s
+time per decryption took: 32.5968462409ms
+num matches: 48
+
+selectivity=1/12.5 took: 79.1541399956s overall
+time spent NOT doing decryption: 0.0570931434631s
+time per decryption took: 29.9610025955ms
+num matches: 184
+
+selectivity=1/100 took: 9.1194601059s overall
+time spent NOT doing decryption: 0.0208377838135s
+time per decryption took: 27.5715827942ms
+num matches: 5
+
+selectivity=1/50 took: 18.5861577988s overall
+time spent NOT doing decryption: 0.0232882499695s
+time per decryption took: 28.1255599224ms
+num matches: 11
+
+selectivity=1/25 took: 36.8899698257s overall
+time spent NOT doing decryption: 0.0351231098175s
+time per decryption took: 27.9203384212ms
+num matches: 48
+
+selectivity=1/12.5 took: 87.0471200943s overall
+time spent NOT doing decryption: 0.0623996257782s
+time per decryption took: 32.9487577532ms
+num matches: 184
+
+--------------------------- sf=0.03
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 15.5401079655s overall
+time spent NOT doing decryption: 0.0308539867401s
+time per decryption took: 31.3318262197ms
+num matches: 7
+
+selectivity=1/50 took: 33.4956321716s overall
+time spent NOT doing decryption: 0.0454323291779s
+time per decryption took: 33.7880806489ms
+num matches: 17
+
+selectivity=1/25 took: 64.5627439022s overall
+time spent NOT doing decryption: 0.0610599517822s
+time per decryption took: 32.5766080558ms
+num matches: 69
+
+selectivity=1/12.5 took: 127.818160057s overall
+time spent NOT doing decryption: 0.101485013962s
+time per decryption took: 32.2516856169ms
+num matches: 280
+
+selectivity=1/100 took: 16.5469739437s overall
+time spent NOT doing decryption: 0.0372869968414s
+time per decryption took: 33.352902923ms
+num matches: 7
+
+selectivity=1/50 took: 32.4664812088s overall
+time spent NOT doing decryption: 0.0472884178162s
+time per decryption took: 32.7466593848ms
+num matches: 17
+
+selectivity=1/25 took: 63.6784460545s overall
+time spent NOT doing decryption: 0.0539166927338s
+time per decryption took: 32.1336006877ms
+num matches: 69
+
+selectivity=1/12.5 took: 127.614029169s overall
+time spent NOT doing decryption: 0.0888731479645s
+time per decryption took: 32.2033222276ms
+num matches: 280
+
+selectivity=1/100 took: 16.3283479214s overall
+time spent NOT doing decryption: 0.0352468490601s
+time per decryption took: 32.9153557016ms
+num matches: 7
+
+selectivity=1/50 took: 33.6546390057s overall
+time spent NOT doing decryption: 0.0419180393219s
+time per decryption took: 33.9522434003ms
+num matches: 17
+
+selectivity=1/25 took: 64.2308311462s overall
+time spent NOT doing decryption: 0.0603799819946s
+time per decryption took: 32.4093187698ms
+num matches: 69
+
+selectivity=1/12.5 took: 127.008968115s overall
+time spent NOT doing decryption: 0.0900671482086s
+time per decryption took: 32.0502275168ms
+num matches: 280
+
+selectivity=1/100 took: 15.9922580719s overall
+time spent NOT doing decryption: 0.0330247879028s
+time per decryption took: 32.2408753212ms
+num matches: 7
+
+selectivity=1/50 took: 31.6016530991s overall
+time spent NOT doing decryption: 0.0400674343109s
+time per decryption took: 31.8803895604ms
+num matches: 17
+
+selectivity=1/25 took: 63.4479629993s overall
+time spent NOT doing decryption: 0.0568828582764s
+time per decryption took: 32.0156970409ms
+num matches: 69
+
+selectivity=1/12.5 took: 129.029654026s overall
+time spent NOT doing decryption: 0.0933289527893s
+time per decryption took: 32.5596780488ms
+num matches: 280
+
+selectivity=1/100 took: 15.9963049889s overall
+time spent NOT doing decryption: 0.0333354473114s
+time per decryption took: 32.2484233163ms
+num matches: 7
+
+selectivity=1/50 took: 32.599624157s overall
+time spent NOT doing decryption: 0.0401570796967s
+time per decryption took: 32.8883505831ms
+num matches: 17
+
+selectivity=1/25 took: 58.4639730453s overall
+time spent NOT doing decryption: 0.0569376945496s
+time per decryption took: 29.4985027024ms
+num matches: 69
+
+selectivity=1/12.5 took: 110.900917053s overall
+time spent NOT doing decryption: 0.079407453537s
+time per decryption took: 27.9852296969ms
+num matches: 280
+
+--------------------------- sf=0.04
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 17.148070097s overall
+time spent NOT doing decryption: 0.0280511379242s
+time per decryption took: 25.9394226652ms
+num matches: 7
+
+selectivity=1/50 took: 34.1314389706s overall
+time spent NOT doing decryption: 0.0441763401031s
+time per decryption took: 25.823683811ms
+num matches: 25
+
+selectivity=1/25 took: 70.3875768185s overall
+time spent NOT doing decryption: 0.0598766803741s
+time per decryption took: 26.6392803553ms
+num matches: 103
+
+selectivity=1/12.5 took: 140.327509165s overall
+time spent NOT doing decryption: 0.101482391357s
+time per decryption took: 26.5579596162ms
+num matches: 377
+
+selectivity=1/100 took: 17.6582210064s overall
+time spent NOT doing decryption: 0.0330893993378s
+time per decryption took: 26.7047448592ms
+num matches: 7
+
+selectivity=1/50 took: 34.9407389164s overall
+time spent NOT doing decryption: 0.0393900871277s
+time per decryption took: 26.4404157797ms
+num matches: 25
+
+selectivity=1/25 took: 70.3788609505s overall
+time spent NOT doing decryption: 0.0576710700989s
+time per decryption took: 26.6368143486ms
+num matches: 103
+
+selectivity=1/12.5 took: 139.706448793s overall
+time spent NOT doing decryption: 0.0967602729797s
+time per decryption took: 26.4412288864ms
+num matches: 377
+
+selectivity=1/100 took: 17.5582699776s overall
+time spent NOT doing decryption: 0.0359852313995s
+time per decryption took: 26.5489162821ms
+num matches: 7
+
+selectivity=1/50 took: 35.4856228828s overall
+time spent NOT doing decryption: 0.043713092804s
+time per decryption took: 26.8499316591ms
+num matches: 25
+
+selectivity=1/25 took: 69.8885600567s overall
+time spent NOT doing decryption: 0.0572791099548s
+time per decryption took: 26.4512427829ms
+num matches: 103
+
+selectivity=1/12.5 took: 139.674978018s overall
+time spent NOT doing decryption: 0.0956211090088s
+time per decryption took: 26.435484263ms
+num matches: 377
+
+selectivity=1/100 took: 17.425069809s overall
+time spent NOT doing decryption: 0.033139705658s
+time per decryption took: 26.3514092474ms
+num matches: 7
+
+selectivity=1/50 took: 34.7660880089s overall
+time spent NOT doing decryption: 0.040256023407s
+time per decryption took: 26.3074484738ms
+num matches: 25
+
+selectivity=1/25 took: 69.6771018505s overall
+time spent NOT doing decryption: 0.0589530467987s
+time per decryption took: 26.3705109105ms
+num matches: 103
+
+selectivity=1/12.5 took: 139.819270134s overall
+time spent NOT doing decryption: 0.0968377590179s
+time per decryption took: 26.4625818892ms
+num matches: 377
+
+selectivity=1/100 took: 17.5065739155s overall
+time spent NOT doing decryption: 0.0359263420105s
+time per decryption took: 26.4706781416ms
+num matches: 7
+
+selectivity=1/50 took: 35.0949258804s overall
+time spent NOT doing decryption: 0.0422554016113s
+time per decryption took: 26.555053393ms
+num matches: 25
+
+selectivity=1/25 took: 70.269313097s overall
+time spent NOT doing decryption: 0.0588676929474s
+time per decryption took: 26.5948656834ms
+num matches: 103
+
+selectivity=1/12.5 took: 160.485585928s overall
+time spent NOT doing decryption: 0.118383169174s
+time per decryption took: 30.3725762801ms
+num matches: 377
+
+--------------------------- sf=0.05
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 21.9990489483s overall
+time spent NOT doing decryption: 0.0354473590851s
+time per decryption took: 26.6225473809ms
+num matches: 7
+
+selectivity=1/50 took: 44.0260767937s overall
+time spent NOT doing decryption: 0.0554118156433s
+time per decryption took: 26.6488878655ms
+num matches: 35
+
+selectivity=1/25 took: 88.3354270458s overall
+time spent NOT doing decryption: 0.0706343650818s
+time per decryption took: 26.746906873ms
+num matches: 116
+
+selectivity=1/12.5 took: 177.099536896s overall
+time spent NOT doing decryption: 0.123982667923s
+time per decryption took: 26.8144779133ms
+num matches: 460
+
+selectivity=1/100 took: 21.9019870758s overall
+time spent NOT doing decryption: 0.0365507602692s
+time per decryption took: 26.5035591703ms
+num matches: 7
+
+selectivity=1/50 took: 43.8468689919s overall
+time spent NOT doing decryption: 0.0490717887878s
+time per decryption took: 26.544119517ms
+num matches: 35
+
+selectivity=1/25 took: 88.2334151268s overall
+time spent NOT doing decryption: 0.0721347332001s
+time per decryption took: 26.7155395132ms
+num matches: 116
+
+selectivity=1/12.5 took: 175.873857975s overall
+time spent NOT doing decryption: 0.125360488892s
+time per decryption took: 26.6285602252ms
+num matches: 460
+
+selectivity=1/100 took: 22.035066843s overall
+time spent NOT doing decryption: 0.0387122631073s
+time per decryption took: 26.6622479757ms
+num matches: 7
+
+selectivity=1/50 took: 43.9648311138s overall
+time spent NOT doing decryption: 0.0530934333801s
+time per decryption took: 26.6131743518ms
+num matches: 35
+
+selectivity=1/25 took: 87.519272089s overall
+time spent NOT doing decryption: 0.0750482082367s
+time per decryption took: 26.4982496608ms
+num matches: 116
+
+selectivity=1/12.5 took: 184.873639107s overall
+time spent NOT doing decryption: 0.120396614075s
+time per decryption took: 27.9929155292ms
+num matches: 460
+
+selectivity=1/100 took: 26.9888799191s overall
+time spent NOT doing decryption: 0.0495269298553s
+time per decryption took: 32.653761199ms
+num matches: 7
+
+selectivity=1/50 took: 55.0312559605s overall
+time spent NOT doing decryption: 0.0642993450165s
+time per decryption took: 33.3133070397ms
+num matches: 35
+
+selectivity=1/25 took: 105.128488064s overall
+time spent NOT doing decryption: 0.0946748256683s
+time per decryption took: 31.828428254ms
+num matches: 116
+
+selectivity=1/12.5 took: 208.006531s overall
+time spent NOT doing decryption: 0.140332937241s
+time per decryption took: 31.4948784944ms
+num matches: 460
+
+selectivity=1/100 took: 26.5512831211s overall
+time spent NOT doing decryption: 0.0495364665985s
+time per decryption took: 32.1233292782ms
+num matches: 7
+
+selectivity=1/50 took: 57.4159867764s overall
+time spent NOT doing decryption: 0.0728735923767s
+time per decryption took: 34.7534019297ms
+num matches: 35
+
+selectivity=1/25 took: 105.858430147s overall
+time spent NOT doing decryption: 0.084320306778s
+time per decryption took: 32.0527605577ms
+num matches: 116
+
+selectivity=1/12.5 took: 189.0598948s overall
+time spent NOT doing decryption: 0.12104344368s
+time per decryption took: 28.6270986904ms
+num matches: 460
+
+--------------------------- sf=0.06
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 29.8943769932s overall
+time spent NOT doing decryption: 0.053261756897s
+time per decryption took: 30.1425406427ms
+num matches: 7
+
+selectivity=1/50 took: 61.4225568771s overall
+time spent NOT doing decryption: 0.0746276378632s
+time per decryption took: 30.9838026461ms
+num matches: 39
+
+selectivity=1/25 took: 123.786168098s overall
+time spent NOT doing decryption: 0.0967645645142s
+time per decryption took: 31.2346978621ms
+num matches: 144
+
+selectivity=1/12.5 took: 198.559895992s overall
+time spent NOT doing decryption: 0.135120868683s
+time per decryption took: 25.0536332227ms
+num matches: 567
+
+selectivity=1/100 took: 24.9680390358s overall
+time spent NOT doing decryption: 0.040981054306s
+time per decryption took: 25.178846446ms
+num matches: 7
+
+selectivity=1/50 took: 49.7908368111s overall
+time spent NOT doing decryption: 0.0566639900208s
+time per decryption took: 25.1182691015ms
+num matches: 39
+
+selectivity=1/25 took: 98.5794348717s overall
+time spent NOT doing decryption: 0.0782935619354s
+time per decryption took: 24.8740255833ms
+num matches: 144
+
+selectivity=1/12.5 took: 216.195892096s overall
+time spent NOT doing decryption: 0.136303186417s
+time per decryption took: 27.2802511249ms
+num matches: 567
+
+selectivity=1/100 took: 27.3688549995s overall
+time spent NOT doing decryption: 0.0478532314301s
+time per decryption took: 27.5969714829ms
+num matches: 7
+
+selectivity=1/50 took: 54.7761888504s overall
+time spent NOT doing decryption: 0.0661652088165s
+time per decryption took: 27.6313250715ms
+num matches: 39
+
+selectivity=1/25 took: 110.667868137s overall
+time spent NOT doing decryption: 0.0949947834015s
+time per decryption took: 27.9224427662ms
+num matches: 144
+
+selectivity=1/12.5 took: 246.853908062s overall
+time spent NOT doing decryption: 0.164652585983s
+time per decryption took: 31.1476332672ms
+num matches: 567
+
+selectivity=1/100 took: 31.5185379982s overall
+time spent NOT doing decryption: 0.0603957176208s
+time per decryption took: 31.7759012935ms
+num matches: 7
+
+selectivity=1/50 took: 58.8326489925s overall
+time spent NOT doing decryption: 0.063844203949s
+time per decryption took: 29.6812145397ms
+num matches: 39
+
+selectivity=1/25 took: 118.4788661s overall
+time spent NOT doing decryption: 0.0898816585541s
+time per decryption took: 29.8962081924ms
+num matches: 144
+
+selectivity=1/12.5 took: 237.768052101s overall
+time spent NOT doing decryption: 0.149965047836s
+time per decryption took: 30.0022837189ms
+num matches: 567
+
+selectivity=1/100 took: 29.14447999s overall
+time spent NOT doing decryption: 0.0580589771271s
+time per decryption took: 29.3802232453ms
+num matches: 7
+
+selectivity=1/50 took: 58.552888155s overall
+time spent NOT doing decryption: 0.0628883838654s
+time per decryption took: 29.5404039248ms
+num matches: 39
+
+selectivity=1/25 took: 114.29035306s overall
+time spent NOT doing decryption: 0.0915050506592s
+time per decryption took: 28.8380929316ms
+num matches: 144
+
+selectivity=1/12.5 took: 229.061373949s overall
+time spent NOT doing decryption: 0.150581359863s
+time per decryption took: 28.9028778522ms
+num matches: 567
+
+--------------------------- sf=0.07
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 33.32020998s overall
+time spent NOT doing decryption: 0.0712003707886s
+time per decryption took: 28.7870213067ms
+num matches: 7
+
+selectivity=1/50 took: 64.7023208141s overall
+time spent NOT doing decryption: 0.0750684738159s
+time per decryption took: 27.9771655153ms
+num matches: 40
+
+selectivity=1/25 took: 120.612653971s overall
+time spent NOT doing decryption: 0.100491523743s
+time per decryption took: 26.0848836465ms
+num matches: 169
+
+selectivity=1/12.5 took: 266.382031918s overall
+time spent NOT doing decryption: 0.17427110672s
+time per decryption took: 28.8103637241ms
+num matches: 651
+
+selectivity=1/100 took: 33.7231009007s overall
+time spent NOT doing decryption: 0.0579707622528s
+time per decryption took: 29.1472988211ms
+num matches: 7
+
+selectivity=1/50 took: 63.8111040592s overall
+time spent NOT doing decryption: 0.0710308551788s
+time per decryption took: 27.5931052831ms
+num matches: 40
+
+	selectivity=1/25 took: 131.658556938s overall
+time spent NOT doing decryption: 0.101915597916s
+time per decryption took: 28.4754634936ms
+num matches: 169
+
+selectivity=1/12.5 took: 243.364515781s overall
+time spent NOT doing decryption: 0.162740945816s
+time per decryption took: 26.3205384021ms
+num matches: 651
+
+selectivity=1/100 took: 30.4570519924s overall
+time spent NOT doing decryption: 0.0507893562317s
+time per decryption took: 26.3257685162ms
+num matches: 7
+
+selectivity=1/50 took: 59.0768239498s overall
+time spent NOT doing decryption: 0.0665676593781s
+time per decryption took: 25.5455654937ms
+num matches: 40
+
+selectivity=1/25 took: 129.098754883s overall
+time spent NOT doing decryption: 0.101113557816s
+time per decryption took: 27.9215673864ms
+num matches: 169
+
+selectivity=1/12.5 took: 261.17990303s overall
+time spent NOT doing decryption: 0.169914245605s
+time per decryption took: 28.2478342841ms
+num matches: 651
+
+selectivity=1/100 took: 34.6297500134s overall
+time spent NOT doing decryption: 0.0743520259857s
+time per decryption took: 29.9180934956ms
+num matches: 7
+
+selectivity=1/50 took: 68.8226299286s overall
+time spent NOT doing decryption: 0.0773854255676s
+time per decryption took: 29.7598461052ms
+num matches: 40
+
+selectivity=1/25 took: 133.997307062s overall
+time spent NOT doing decryption: 0.112767934799s
+time per decryption took: 28.9793374735ms
+num matches: 169
+
+selectivity=1/12.5 took: 273.431061029s overall
+time spent NOT doing decryption: 0.182960271835s
+time per decryption took: 29.5723052768ms
+num matches: 651
+
+selectivity=1/100 took: 34.885185957s overall
+time spent NOT doing decryption: 0.0731191635132s
+time per decryption took: 30.1403175701ms
+num matches: 7
+
+selectivity=1/50 took: 70.6063170433s overall
+time spent NOT doing decryption: 0.0760979652405s
+time per decryption took: 30.5325623715ms
+num matches: 40
+
+selectivity=1/25 took: 142.356063843s overall
+time spent NOT doing decryption: 0.121737480164s
+time per decryption took: 30.7866507278ms
+num matches: 169
+
+selectivity=1/12.5 took: 268.877514124s overall
+time spent NOT doing decryption: 0.169363260269s
+time per decryption took: 29.0809687082ms
+num matches: 651
+
+--------------------------- sf=0.08
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 41.7344739437s overall
+time spent NOT doing decryption: 0.0688800811768s
+time per decryption took: 31.5648438353ms
+num matches: 8
+
+selectivity=1/50 took: 81.2274639606s overall
+time spent NOT doing decryption: 0.0874373912811s
+time per decryption took: 30.734858549ms
+num matches: 39
+
+selectivity=1/25 took: 164.959769011s overall
+time spent NOT doing decryption: 0.12991309166s
+time per decryption took: 31.2177757422ms
+num matches: 196
+
+selectivity=1/12.5 took: 323.645837069s overall
+time spent NOT doing decryption: 0.203932762146s
+time per decryption took: 30.6289682108ms
+num matches: 742
+
+selectivity=1/100 took: 33.4613180161s overall
+time spent NOT doing decryption: 0.052280664444s
+time per decryption took: 25.3098767815ms
+num matches: 8
+
+selectivity=1/50 took: 75.7634410858s overall
+time spent NOT doing decryption: 0.0813553333282s
+time per decryption took: 28.6674567244ms
+num matches: 39
+
+selectivity=1/25 took: 152.445173979s overall
+time spent NOT doing decryption: 0.121998548508s
+time per decryption took: 28.8490862557ms
+num matches: 196
+
+selectivity=1/12.5 took: 307.849457979s overall
+time spent NOT doing decryption: 0.197216033936s
+time per decryption took: 29.1337350327ms
+num matches: 742
+
+selectivity=1/100 took: 37.1145129204s overall
+time spent NOT doing decryption: 0.0650632381439s
+time per decryption took: 28.0677649108ms
+num matches: 8
+
+selectivity=1/50 took: 77.8476948738s overall
+time spent NOT doing decryption: 0.0777158737183s
+time per decryption took: 29.4583253788ms
+num matches: 39
+
+selectivity=1/25 took: 160.032948017s overall
+time spent NOT doing decryption: 0.121416330338s
+time per decryption took: 30.2862749407ms
+num matches: 196
+
+selectivity=1/12.5 took: 298.299350977s overall
+time spent NOT doing decryption: 0.197565078735s
+time per decryption took: 28.2293357858ms
+num matches: 742
+
+selectivity=1/100 took: 36.5388960838s overall
+time spent NOT doing decryption: 0.0671720504761s
+time per decryption took: 27.6300939647ms
+num matches: 8
+
+selectivity=1/50 took: 75.4707410336s overall
+time spent NOT doing decryption: 0.081465959549s
+time per decryption took: 28.5565435886ms
+num matches: 39
+
+selectivity=1/25 took: 163.365407944s overall
+time spent NOT doing decryption: 0.129530668259s
+time per decryption took: 30.9158858476ms
+num matches: 196
+
+selectivity=1/12.5 took: 311.116926908s overall
+time spent NOT doing decryption: 0.199659824371s
+time per decryption took: 29.4429230193ms
+num matches: 742
+
+selectivity=1/100 took: 40.7593550682s overall
+time spent NOT doing decryption: 0.0762977600098s
+time per decryption took: 30.8204979608ms
+num matches: 8
+
+selectivity=1/50 took: 74.3187100887s overall
+time spent NOT doing decryption: 0.0750424861908s
+time per decryption took: 28.1226013646ms
+num matches: 39
+
+selectivity=1/25 took: 146.436861038s overall
+time spent NOT doing decryption: 0.125001192093s
+time per decryption took: 27.7105795163ms
+num matches: 196
+
+selectivity=1/12.5 took: 301.467782021s overall
+time spent NOT doing decryption: 0.194426059723s
+time per decryption took: 28.5296738599ms
+num matches: 742
+
+--------------------------- sf=0.09
+starting to encrypt customer
+done encrypting customer
+starting to encrypt orders
+done encrypting orders
+
+selectivity=1/100 took: 43.5404648781s overall
+time spent NOT doing decryption: 0.0702612400055s
+time per decryption took: 29.2728644027ms
+num matches: 8
+
+selectivity=1/50 took: 82.6527681351s overall
+time spent NOT doing decryption: 0.0854091644287s
+time per decryption took: 27.8004575659ms
+num matches: 52
+
+selectivity=1/25 took: 163.834942102s overall
+time spent NOT doing decryption: 0.125987291336s
+time per decryption took: 27.5604301029ms
+num matches: 219
+
+selectivity=1/12.5 took: 340.78779912s overall
+time spent NOT doing decryption: 0.216309309006s
+time per decryption took: 28.6676338225ms
+num matches: 856
+
+selectivity=1/100 took: 42.6759779453s overall
+time spent NOT doing decryption: 0.0722849369049s
+time per decryption took: 28.6893555612ms
+num matches: 8
+
+selectivity=1/50 took: 92.4053888321s overall
+time spent NOT doing decryption: 0.0936734676361s
+time per decryption took: 31.0813856446ms
+num matches: 52
+
+selectivity=1/25 took: 181.142968178s overall
+time spent NOT doing decryption: 0.149374246597s
+time per decryption took: 30.4703020086ms
+num matches: 219
+
+selectivity=1/12.5 took: 355.196158171s overall
+time spent NOT doing decryption: 0.22868514061s
+time per decryption took: 29.8794169217ms
+num matches: 856
+
+selectivity=1/100 took: 47.1120069027s overall
+time spent NOT doing decryption: 0.0770978927612s
+time per decryption took: 31.6733394006ms
+num matches: 8
+
+selectivity=1/50 took: 83.309969902s overall
+time spent NOT doing decryption: 0.0813100337982s
+time per decryption took: 28.0231178008ms
+num matches: 52
+
+selectivity=1/25 took: 171.201171875s overall
+time spent NOT doing decryption: 0.145144701004s
+time per decryption took: 28.7973109721ms
+num matches: 219
+
+selectivity=1/12.5 took: 329.999264002s overall
+time spent NOT doing decryption: 0.20945930481s
+time per decryption took: 27.7600845705ms
+num matches: 856
+
+selectivity=1/100 took: 42.0198848248s overall
+time spent NOT doing decryption: 0.072722196579s
+time per decryption took: 28.2472475611ms
+num matches: 8
+
+selectivity=1/50 took: 98.917744875s overall
+time spent NOT doing decryption: 0.111025094986s
+time per decryption took: 33.2682558182ms
+num matches: 52
+
+selectivity=1/25 took: 205.056643009s overall
+time spent NOT doing decryption: 0.168967247009s
+time per decryption took: 34.4928747074ms
+num matches: 219
+
+selectivity=1/12.5 took: 409.177482128s overall
+time spent NOT doing decryption: 0.296633481979s
+time per decryption took: 34.4175798524ms
+num matches: 856
+
+selectivity=1/100 took: 50.3941478729s overall
+time spent NOT doing decryption: 0.0921680927277s
+time per decryption took: 33.8733870574ms
+num matches: 8
+
+selectivity=1/50 took: 98.5112400055s overall
+time spent NOT doing decryption: 0.115301132202s
+time per decryption took: 33.1299457486ms
+num matches: 52
+
+selectivity=1/25 took: 204.334911108s overall
+time spent NOT doing decryption: 0.189309597015s
+time per decryption took: 34.3679463823ms
+num matches: 219
+
+selectivity=1/12.5 took: 341.578944921s overall
+time spent NOT doing decryption: 0.223606586456s
+time per decryption took: 28.733614338ms
+num matches: 856
+
