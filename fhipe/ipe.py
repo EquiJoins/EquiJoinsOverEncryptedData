@@ -218,10 +218,9 @@ def generatePolynomial(x):
     # print(new_poly)
   return new_poly
 
-# returns [H(a), H(x)^2, H(x), 1, 0, R] where
+# return [h(a), h(x)^max_degree, h(x)^(max_degree - 1), ..., h(x)^0, 0, R], where
 # a would be the join attribute
 # x is an attribute in a where clause, i.e. x = C 
-# ---------------------------------------------------------  IMPROVEMENT : DONT NEED MSK. just need group
 def generateRowVector(msk, a, x, max_degree):
   (detB, B, Bstar, group, g1, g2) = msk
   h_a = group.hash(a)
@@ -238,9 +237,10 @@ def generateRowVector(msk, a, x, max_degree):
   r = group.random(ZR)
   return [h_a] + powers_of_x + [0, r]
 
-# returns [k, 0, 1, -H(x_q), R, 0] where
+# return [k, R'*c_0, R'*c_1, ..., R'*c_n, R, 0], where
 # x_q is the 'C' in generateVectorX
 # k is a per-query secret key
+# R' is a fresh random value
 def generateQueryVector(msk, k, x_q, x_q_max_size):
   (detB, B, Bstar, group, g1, g2) = msk
 
@@ -267,6 +267,3 @@ def encryptQuery(msk, k, x_q, x_q_max_size):
 def encryptTable(msk, table, pk, a, x, max_degree):
   return [(row[pk], row[x], encryptRow(msk, row[a], row[x], max_degree)) for row in table]
 
-
-# TODO
-# rename arguments to more descriptive names (e.g. a -> join_key)
