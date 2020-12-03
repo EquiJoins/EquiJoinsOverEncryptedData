@@ -45,8 +45,12 @@ See the following list for common build errors and how to fix them.
    Using the latest dev branch of the `charm` repo should resolve this (i.e. `cd charm` and `git checkout dev`).
 
 ## Running Experiments ##
-
-To be added.
+In [hash_based_join.py](hash_based_impl/hash_based_join.py), we run a hash based join
+on TPC-H data (schema found [here](http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-h_v2.17.1.pdf#page=13])). 
+In the `hash_based_impl/data/` folder, one can find the datasets separated by the scale factor used to generate them.
+We only use the `orders` table and `customer` table. For these tables, we have appended a column `selectivity`
+to have granular control over which rows are selected in a `WHERE` clause. For example, for selectivity `1/100`,
+there will be `num_rows / 100` rows that have value `100` for the `selectivity` attribute.
 
 ## Notes from Previous Development ##
 

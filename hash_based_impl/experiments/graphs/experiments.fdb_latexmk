@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1606987481 "experiments.tex" "experiments.pdf" "experiments" 1606987482
+["pdflatex"] 1607006746 "experiments.tex" "experiments.pdf" "experiments" 1607006747
   "/etc/texmf/web2c/texmf.cnf" 1595188286 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/surajg124/texmf/tex/generic/pgf/basiclayer/pgfcore.code.tex" 1557692582 992 fb3cda354707a54fda62787a411c7c22 ""
   "/home/surajg124/texmf/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex" 1546728038 43820 bc6cf5aa959817914ace33f5c6232161 ""
@@ -168,9 +168,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1595188797 4429294 7e37af41c846069ce41e50f05b527231 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1595188803 4791332 1827e1c3120a9e64b5469e93be7a3e15 ""
-  "experiments.aux" 1606987482 45 9108cb1e5d0715b696fc51716bdec3e1 "pdflatex"
-  "experiments.tex" 1606987481 4192 4b23bec028a84b8e7da0398608a284b5 ""
+  "experiments.aux" 1607006747 45 9108cb1e5d0715b696fc51716bdec3e1 "pdflatex"
+  "experiments.tex" 1607006744 4229 0f7504a1fdd4e6a4751dc74d397e3c29 ""
   (generated)
-  "experiments.pdf"
   "experiments.aux"
   "experiments.log"
+  "experiments.pdf"

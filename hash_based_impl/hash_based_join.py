@@ -84,6 +84,12 @@ def experiment_1(pp, msk, sf, iters):
   print('done encrypting orders')
 
   print('')
+  selectivity_100_results = []
+  selectivity_50_results = []
+  selectivity_25_results = []
+  selectivity_12_5_results = []
+  selectivity_1_results = []
+
   for i in range(iters):
     # selectivity = 1/100
     x_c = ["100"]
@@ -91,6 +97,7 @@ def experiment_1(pp, msk, sf, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_100_results.append(query_end - query_start)
     print('selectivity=1/100 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -103,6 +110,7 @@ def experiment_1(pp, msk, sf, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_50_results.append(query_end - query_start)
     print('selectivity=1/50 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -115,6 +123,7 @@ def experiment_1(pp, msk, sf, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_25_results.append(query_end - query_start)
     print('selectivity=1/25 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -127,6 +136,7 @@ def experiment_1(pp, msk, sf, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_12_5_results.append(query_end - query_start)
     print('selectivity=1/12.5 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -140,11 +150,23 @@ def experiment_1(pp, msk, sf, iters):
       query_start = time.time()
       (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
       query_end = time.time()
+      selectivity_1_results.append(query_end - query_start)
       print('selectivity=1/1 took: {}s overall'.format(query_end - query_start))
       print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
       print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
       print('num matches: {}'.format(len(matches)))
       print('')
+  
+  # aggregations
+  print('--------------- AVERAGES OVER ITERATIONS')
+  print('selectivity=1/100 took: {}s on average'.format(sum(selectivity_100_results) / len(selectivity_100_results)))
+  print('selectivity=1/50 took: {}s on average'.format(sum(selectivity_50_results) / len(selectivity_50_results)))
+  print('selectivity=1/25 took: {}s on average'.format(sum(selectivity_25_results) / len(selectivity_25_results)))
+  print('selectivity=1/12.5 took: {}s on average'.format(sum(selectivity_12_5_results) / len(selectivity_12_5_results)))
+  if selectivity_1:
+    print('selectivity=1/1 took: {}s on average'.format(sum(selectivity_1_results) / len(selectivity_1_results)))
+
+  print('\n\n')
 
 
 def experiment_2(in_clause_max_size, iters):
@@ -174,6 +196,12 @@ def experiment_2(in_clause_max_size, iters):
   print('done encrypting orders')
 
   print('')
+  selectivity_100_results = []
+  selectivity_50_results = []
+  selectivity_25_results = []
+  selectivity_12_5_results = []
+  selectivity_1_results = []
+
   for i in range(iters):
     # selectivity = 1/100
     x_c = ["100"]
@@ -181,6 +209,7 @@ def experiment_2(in_clause_max_size, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_100_results.append(query_end - query_start)
     print('selectivity=1/100 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -193,6 +222,7 @@ def experiment_2(in_clause_max_size, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_50_results.append(query_end - query_start)
     print('selectivity=1/50 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -205,6 +235,7 @@ def experiment_2(in_clause_max_size, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_25_results.append(query_end - query_start)
     print('selectivity=1/25 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -217,6 +248,7 @@ def experiment_2(in_clause_max_size, iters):
     query_start = time.time()
     (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
     query_end = time.time()
+    selectivity_12_5_results.append(query_end - query_start)
     print('selectivity=1/12.5 took: {}s overall'.format(query_end - query_start))
     print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
     print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
@@ -230,36 +262,51 @@ def experiment_2(in_clause_max_size, iters):
       query_start = time.time()
       (matches, decryptions) = hash_based_join(pp, msk, encrypted_table_a, encrypted_table_b, x_c, y_c)
       query_end = time.time()
+      selectivity_1_results.append(query_end - query_start)
       print('selectivity=1/1 took: {}s overall'.format(query_end - query_start))
       print('time spent NOT doing decryption: {}s'.format((query_end - query_start) - sum(decryptions)))
       print('time per decryption took: {}ms'.format((sum(decryptions) / len(decryptions)) * 1000))
       print('num matches: {}'.format(len(matches)))
       print('')
+  
+  # aggregations
+  print('--------------- AVERAGES OVER ITERATIONS')
+  print('selectivity=1/100 took: {}s on average'.format(sum(selectivity_100_results) / len(selectivity_100_results)))
+  print('selectivity=1/50 took: {}s on average'.format(sum(selectivity_50_results) / len(selectivity_50_results)))
+  print('selectivity=1/25 took: {}s on average'.format(sum(selectivity_25_results) / len(selectivity_25_results)))
+  print('selectivity=1/12.5 took: {}s on average'.format(sum(selectivity_12_5_results) / len(selectivity_12_5_results)))
+  if selectivity_1:
+    print('selectivity=1/1 took: {}s on average'.format(sum(selectivity_1_results) / len(selectivity_1_results)))
+
+  print('\n\n')
+
 
 # MAIN
 # experiments to test relationship between overall time and scale factor
 """
 (pp, msk) = ipe.setup(3+IN_CLAUSE_MAX_SIZE+1)
-experiment_1(pp, msk, "0.01", 5)
-experiment_1(pp, msk, "0.02", 5)
-experiment_1(pp, msk, "0.03", 5)
-experiment_1(pp, msk, "0.04", 5)
-experiment_1(pp, msk, "0.05", 5)
-experiment_1(pp, msk, "0.06", 5)
-experiment_1(pp, msk, "0.07", 5)
-experiment_1(pp, msk, "0.08", 5)
-experiment_1(pp, msk, "0.09", 5)
+experiment_1(pp, msk, "0.01", 20)
+experiment_1(pp, msk, "0.02", 20)
+experiment_1(pp, msk, "0.03", 20)
+experiment_1(pp, msk, "0.04", 20)
+experiment_1(pp, msk, "0.05", 20)
+experiment_1(pp, msk, "0.06", 20)
+experiment_1(pp, msk, "0.07", 20)
+experiment_1(pp, msk, "0.08", 20)
+experiment_1(pp, msk, "0.09", 20)
+experiment_1(pp, msk, "0.1", 20)
 """
 
 # experiments to test relationship between overall time and IN_CLAUSE_MAX_SIZE
 """
-experiment_2(1, 5)
-experiment_2(2, 5)
-experiment_2(3, 5)
-experiment_2(5, 5)
-experiment_2(5, 5)
-experiment_2(6, 5)
-experiment_2(7, 5)
-experiment_2(8, 5)
-experiment_2(9, 5)
+experiment_2(1, 20)
+experiment_2(2, 20)
+experiment_2(3, 20)
+experiment_2(5, 20)
+experiment_2(5, 20)
+experiment_2(6, 20)
+experiment_2(7, 20)
+experiment_2(8, 20)
+experiment_2(9, 20)
+experiment_2(10, 20)
 """

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.19)  3 DEC 2020 04:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.19)  3 DEC 2020 09:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -460,15 +460,15 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./experiments.aux) ) 
 Here is how much of TeX's memory you used:
- 23936 strings out of 483183
- 613014 string characters out of 5966292
- 998262 words of memory out of 5000000
- 38592 multiletter control sequences out of 15000+600000
+ 23935 strings out of 483183
+ 612996 string characters out of 5966292
+ 999263 words of memory out of 5000000
+ 38591 multiletter control sequences out of 15000+600000
  538325 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,17n,107p,707b,2321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,17n,107p,707b,2323s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on experiments.pdf (1 page, 108153 bytes).
+Output written on experiments.pdf (1 page, 106876 bytes).
 PDF statistics:
  51 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream
