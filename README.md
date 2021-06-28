@@ -12,9 +12,6 @@ WHERE A.a IN (s_1) AND B.b IN (t_1)
 we would like to encrypt the tables (i.e. their rows),
 execute an encrypted query on them, resulting in the retrieval of the correct rows.
 
-See [this paper](http://www.fkerschbaum.org/icde19.pdf) for a formal description
-of the algorithm implemented in this repository.
-
 This implementation uses a
 [function-hiding inner product encryption scheme](https://eprint.iacr.org/2016/440.pdf)
 whose code is contained in [fhipe](fhipe). Section 2.3 of the paper is the API specification
@@ -32,7 +29,7 @@ Make sure you have the following installed:
 ## Installation ##
 
 ```bash
- $ git clone --recursive https://git.uwaterloo.ca/fkerschb/encrypted-joins.git
+ $ git clone --recursive https://github.com/EquiJoins/EquiJoinsOverEncryptedData.git
  $ cd encryped-joins
  $ sudo make install # ( or use `make install-mac` if running on MAC OS X)
 ```
